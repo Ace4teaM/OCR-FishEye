@@ -1,7 +1,13 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { prisma } from "../lib/prisma.js";
 
-export default function Home() {
+export default async function Home() {
+  
+  // Fetch all users with their posts
+  const all = await prisma.Photographer.findMany();
+  console.log("All:", JSON.stringify(all, null, 2));
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
