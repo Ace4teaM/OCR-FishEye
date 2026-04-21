@@ -1,0 +1,42 @@
+"use client"
+
+import { useEffect } from 'react';
+import styles from './Card.module.css';
+
+/**
+ * @param {string} image - Chemin vers l'image de profile
+ * @param {string} name - Nom et prénom
+ * @param {string} text - Citation
+ * @param {string} location - La ville
+ */
+const Card = (
+  {
+    image = "EllieRoseWilkens.jpg",
+    name = "Ellie-Rose Wilkens",
+    text = "Capturer des compositions complexes",
+    location = "Paris",
+  }
+) => {
+
+  useEffect(() => {
+    console.log(`Card mounted`)
+  }, [])
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <div className={styles.photo}>
+          <img src={`/${image}`} alt="Photo de profile"></img>
+        </div>
+        <button className={`button ${styles.contact}`}>Contactez-moi</button>
+        <div className={styles.title}>
+          <div className={styles.name}>{name}</div>
+          <div className={styles.location}>{location}</div>
+          <div className={styles.text}>{text}</div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Card;
