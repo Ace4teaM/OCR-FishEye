@@ -13,38 +13,44 @@ const CardGrid =  (
       { 
         image : "EllieRoseWilkens.jpg",
         name : "Ellie-Rose Wilkens",
-        text : "Capturer des compositions complexes",
-        location : "Paris"
+        tagline : "Capturer des compositions complexes",
+        city : "Paris",
+        country : "France"
       },
       { 
         image : "RhodeDubois.jpg",
         name : "Rhode Dubois",
-        text : "Je crée des souvenirs",
-        location : "Barcelona"
+        tagline : "Je crée des souvenirs",
+        city : "Barcelona",
+        country : "Spain"
       },
       { 
         image : "NabeelBradford.jpg",
         name : "Nabeel Bradford",
-        text : "Toujours aller de l'avant",
-        location : "Mexico City"
+        tagline : "Toujours aller de l'avant",
+        city : "Mexico City",
+        country : "Mexico"
       },
       { 
         image : "MimiKeel.jpg",
         name : "Mimi Keel",
-        text : "Voir le beau dans le quotidien",
-        location : "London"
+        tagline : "Voir le beau dans le quotidien",
+        city : "London",
+        country : "UK"
       },
       { 
         image : "MarcelNikolic.jpg",
         name : "Marcel Nikolic",
-        text : "Toujours à la recherche de LA photo",
-        location : "Germany"
+        tagline : "Toujours à la recherche de LA photo",
+        city : "Berlin",
+        country : "Germany"
       },
       { 
         image : "TracyGalindo.jpg",
         name : "Tracy Galindo",
-        text : "Photographe freelance",
-        location : "Canada"
+        tagline : "Photographe freelance",
+        city : "Montreal",
+        country : "Canada"
       }
     ]
   }

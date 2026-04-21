@@ -13,8 +13,9 @@ const Card = (
   {
     image = "EllieRoseWilkens.jpg",
     name = "Ellie-Rose Wilkens",
-    text = "Capturer des compositions complexes",
-    location = "Paris",
+    tagline = "Capturer des compositions complexes",
+    city = "Paris",
+    country = "France"
   }
 ) => {
 
@@ -31,8 +32,8 @@ const Card = (
         <button className={`button ${styles.contact}`}>Contactez-moi</button>
         <div className={styles.title}>
           <div className={styles.name}>{name}</div>
-          <div className={styles.location}>{location}</div>
-          <div className={styles.text}>{text}</div>
+          <div className={styles.location}>{city}, {country}</div>
+          <div className={styles.text}>{tagline}</div>
         </div>
       </div>
     </div>
