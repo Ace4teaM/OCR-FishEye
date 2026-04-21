@@ -1,0 +1,10 @@
+.container{
+  container-type: inline-size;
+  container-name: layout;
+}
+
+.content{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 100px;
+}
