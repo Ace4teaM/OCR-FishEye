@@ -1,0 +1,17 @@
+.container{
+  display: block;
+}
+
+.content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin: 10px 0px 10px 0px;
+}
+
+.content h1{
+  font-size: 1.5em;
+  color: var(--primary-bg);
+}
