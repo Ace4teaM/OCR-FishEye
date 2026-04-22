@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from 'react';
-import Card from "@/components/Card/Card.jsx";
+import CardSmall from "@/components/CardSmall/CardSmall.jsx";
 import styles from './CardGrid.module.css';
 
 /**
@@ -11,46 +11,39 @@ const CardGrid =  (
   {
     items = [
       { 
-        image : "EllieRoseWilkens.jpg",
+        portrait : "EllieRoseWilkens.jpg",
         name : "Ellie-Rose Wilkens",
         tagline : "Capturer des compositions complexes",
         city : "Paris",
         country : "France"
       },
       { 
-        image : "RhodeDubois.jpg",
+        portrait : "RhodeDubois.jpg",
         name : "Rhode Dubois",
         tagline : "Je crée des souvenirs",
         city : "Barcelona",
         country : "Spain"
       },
       { 
-        image : "NabeelBradford.jpg",
+        portrait : "NabeelBradford.jpg",
         name : "Nabeel Bradford",
         tagline : "Toujours aller de l'avant",
         city : "Mexico City",
         country : "Mexico"
       },
       { 
-        image : "MimiKeel.jpg",
+        portrait : "MimiKeel.jpg",
         name : "Mimi Keel",
         tagline : "Voir le beau dans le quotidien",
         city : "London",
         country : "UK"
       },
       { 
-        image : "MarcelNikolic.jpg",
+        portrait : "MarcelNikolic.jpg",
         name : "Marcel Nikolic",
         tagline : "Toujours à la recherche de LA photo",
         city : "Berlin",
         country : "Germany"
-      },
-      { 
-        image : "TracyGalindo.jpg",
-        name : "Tracy Galindo",
-        tagline : "Photographe freelance",
-        city : "Montreal",
-        country : "Canada"
       }
     ]
   }
@@ -64,7 +57,7 @@ const CardGrid =  (
     <div className={styles.container}>
       <div className={styles.content}>
         {items.map((item, index)=>
-          <Card key={`cardgrid-item-${index}`} {...item}></Card>
+          <CardSmall key={`cardgrid-item-${index}`} {...item}></CardSmall>
         )}
       </div>
     </div>

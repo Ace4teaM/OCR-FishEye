@@ -1,17 +1,24 @@
 import styles from "./page.module.css";
-import { prisma } from "../lib/prisma.js";
-import Card from "@/components/Card/Card.jsx";
+import { prisma } from "@/lib/prisma.js";
+import DropMenu from "@/components/DropMenu/DropMenu.jsx";
+import CardGrid from "@/components/CardGrid/CardGrid.jsx";
+import Banner from "@/components/Banner/Banner.jsx";
 
 export default async function Home() {
   
-  // Fetch all users with their posts
+  // Obtiens tous les profiles
   const all = await prisma.Photographer.findMany();
-  console.log("All:", JSON.stringify(all, null, 2));
 
   return (
     <div>
+      <header>
+        <Banner title = "Nos photographes"></Banner>
+      </header>
+      <nav>
+        <DropMenu></DropMenu>
+      </nav>
       <main>
-        <Card></Card>
+        <CardGrid items={all}></CardGrid>
       </main>
     </div>
   );
