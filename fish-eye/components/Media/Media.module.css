@@ -1,0 +1,83 @@
+.container{
+  display: inline-block;
+}
+
+.content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  color: var(--primary-bg);
+  font-size: 1.3em;
+  line-height: 2em;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.text{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.empty{
+  background-color: #C4C4C4;
+  border-radius: 6px;
+  border: none;
+  overflow: hidden;
+  position: relative;
+  /* n'impose pas de taille mais conserve le ratio*/
+  aspect-ratio: 350 / 300;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video{
+  background-color: #C4C4C4;
+  border-radius: 6px;
+  border: none;
+  overflow: hidden;
+  position: relative;
+  /* n'impose pas de taille mais conserve le ratio*/
+  aspect-ratio: 350 / 300;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.picture{
+  background-color: #C4C4C4;
+  border-radius: 6px;
+  border: none;
+  overflow: hidden;
+  position: relative;
+  /* n'impose pas de taille mais conserve le ratio*/
+  aspect-ratio: 350 / 300;
+}
+
+.picture img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.icon{
+  color: var(--primary-bg);
+  fill: var(--primary-bg);
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+}

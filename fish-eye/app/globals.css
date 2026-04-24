@@ -24,7 +24,6 @@
 }
 
 .button:hover{
-  border-radius: 10px;
   border: none;
   color: black;
   background-color: var(--secondary-bg);
