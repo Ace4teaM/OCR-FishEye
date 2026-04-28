@@ -1,0 +1,53 @@
+.container{
+  color: #312E2E;
+  background-color: var(--secondary-bg);
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin: auto;
+}
+
+/* Style de l'arrière-plan (uniquement en mode showModal) */
+.container::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px); /* Petit effet de flou moderne */
+}
+
+.content{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: max(300px, 10vw);
+  font-size: 1.2em;
+}
+
+.content input, .content textarea{
+  font-size: 1em;
+  padding: 3px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.content button{
+  height: 40px;
+  width: 100px;
+  margin-top: 20px;
+}
+
+.icon {
+  position: absolute;
+  top: 16px;
+  right: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.title{
+  margin-bottom: 20px;
+}
+
+.title > *{
+  font-size: 2em;
+  font-weight: bold;
+}
