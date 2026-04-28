@@ -32,7 +32,7 @@ console.log(entry);
       <main className={styles.container}>
         <div className={styles.grid}>
         {entry.medias.map((media, index)=>
-          <Media {...media}></Media>
+          <Media key={`media-${media.id}`} {...media}></Media>
         )}
         </div>
       </main>
