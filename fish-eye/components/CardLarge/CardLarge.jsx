@@ -1,7 +1,8 @@
 "use client"
 
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import styles from './CardLarge.module.css';
+import { StatesContext } from '@/contexts/StatesContext.jsx';
 
 /**
  * @param {int} id - Identifiant du profile
@@ -21,6 +22,8 @@ const CardLarge = (
   }
 ) => {
 
+  const { showContactModal } = useContext(StatesContext);
+
   useEffect(() => {
     console.log(`Card mounted`)
   }, [])
@@ -31,7 +34,9 @@ const CardLarge = (
         <div className={styles.photo}>
           <img src={`/${portrait}`} alt=""></img>
         </div>
-        <button className={`button ${styles.contact}`}>Contactez-moi</button>
+        <button className={`button ${styles.contact}`} onClick={showContactModal}>
+          Contactez-moi
+        </button>
         <div className={styles.title}>
           <h1 className={styles.name}>{name}</h1>
           <div className={styles.location}>{city}, {country}</div>

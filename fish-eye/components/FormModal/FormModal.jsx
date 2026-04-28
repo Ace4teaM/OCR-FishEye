@@ -2,7 +2,8 @@
 
 import styles from './FormModal.module.css';
 import { X } from "lucide-react";
-import { useEffect, useState, useRef, useId } from 'react';
+import { useEffect, useState, useRef, useId, useContext } from 'react';
+import { StatesContext } from '@/contexts/StatesContext.jsx';
 
 /**
  * @param {string} firstname - Champ du formulaire
@@ -20,31 +21,33 @@ const FormModal = (
   }
 ) => {
 
+  const { currentModal, hideModal } = useContext(StatesContext);
+
   const id = useId();
 
-  const [isOpen, setIsOpen] = useState(false);
   const dialogRef = useRef(null);
+
 
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
 
-    if (isOpen) {
+    if (currentModal === "contact") {
       dialog.showModal(); // Ouvre en mode modal (avec backdrop)
     } else {
       dialog.close();
     }
-  }, [isOpen]);
+  }, [currentModal]); // Se déclenche chaque fois que le texte change
 
   return (
     <dialog 
       className={styles.container}
       ref={dialogRef}
       // On écoute la fermeture via la touche Échap
-      onClose={() => setIsOpen(false)}
+      onClose={() => hideModal()}
       onClick={(e) => {
         // Fermeture au clic sur le backdrop
-        if (e.target === dialogRef.current) setIsOpen(false);
+        if (e.target === dialogRef.current) hideModal();
       }}
     >
       <div className={styles.title}>
@@ -60,9 +63,9 @@ const FormModal = (
         <input id={`${id}--email`} name="email" type="email" value={email}></input>
         <label htmlFor={`${id}--message`}>Votre message</label>
         <textarea id={`${id}--message`} name="message" rows={6} value={message}></textarea>
-        <button class="button" type="submit">Envoyer</button>
+        <button className="button" type="submit">Envoyer</button>
       </form>
-      <X className={styles.icon} size={42} color="white" onClick={()=>{setIsOpen(false)}} />
+      <X className={styles.icon} size={42} color="white" onClick={()=>{hideModal()}} />
     </dialog>
   )
 }
