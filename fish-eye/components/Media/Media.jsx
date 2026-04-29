@@ -3,15 +3,14 @@
 import { useEffect } from 'react';
 import styles from './Media.module.css';
 import { Heart } from "lucide-react";
-import {Plyr} from "plyr-react"
-import "plyr-react/plyr.css"
 
 /**
  * @param {int} id - Identifiant
- * @param {string} title - Titre
  * @param {string} image - Chemin vers le fichier image
+ * @param {string} title - Titre
+ * @param {string} likes - Nombre de likes
  * @param {string} video - Chemin vers le fichier vidéo
- * @param {string} likes - Nombre de like
+ * @param {function} onClick - Fonction à appeler au clic sur le media
  */
 const Media = (
   {
@@ -19,53 +18,28 @@ const Media = (
     image = "Travel_Bike_and_Stair.jpg",
     title = "Travel Bike and Stair",
     likes = 15,
-    video = null
+    video = null,
+    onClick = () => {}
   }
 ) => {
-
-  // Player source configuration
-  const plyrProps = {
-    source: {
-      type: "video",
-      sources: [
-        {
-          src: video,
-          type: "video/mp4",
-          size: 720,
-        },
-      ]
-    },
-    options: {
-      // Full list of options: https://github.com/sampotts/plyr#options
-      controls: [
-        "play-large",
-        "play",
-        "progress",
-        "current-time",
-        "mute",
-        "volume",
-        "captions",
-        "settings",
-        "pip",
-        "airplay",
-        "fullscreen",
-      ],
-    },
-  }
- //         <Plyr {...plyrProps} />
 
   useEffect(() => {
     console.log(`Picture mounted`)
   }, [])
 
+  const clickMedia = (e) => {
+    e.preventDefault();
+    onClick()
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        {image ? <div className={styles.picture}>
+        {image ? <div className={styles.picture} onClick={clickMedia}>
           <img src={`/${image}`}></img>
         </div>
-        : video ? <div className={styles.video}>
-          <video controls playsInline>
+        : video ? <div className={styles.video} onClick={clickMedia}>
+          <video>
             <source src={`/${video}`} type="video/mp4" />
           </video>
         </div>

@@ -40,7 +40,7 @@ const FormModal = (
   }, [currentModal]); // Se déclenche chaque fois que le texte change
 
   return (
-    <dialog 
+    <dialog
       className={styles.container}
       ref={dialogRef}
       // On écoute la fermeture via la touche Échap

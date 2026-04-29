@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import FormModal from "@/components/FormModal/FormModal.jsx";
 import { StatesProvider } from '@/contexts/StatesContext.jsx';
 
 const geistSans = Geist({
@@ -24,7 +23,6 @@ export default function RootLayout({ children }) {
       <body>
         <StatesProvider>
         {children}
-        <FormModal></FormModal>
         </StatesProvider>
       </body>
     </html>

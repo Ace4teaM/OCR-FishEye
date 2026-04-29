@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma.js";
 import DropMenu from "@/components/DropMenu/DropMenu.jsx";
 import CardLarge from "@/components/CardLarge/CardLarge.jsx";
 import Banner from "@/components/Banner/Banner.jsx";
-import Media from "@/components/Media/Media.jsx";
+import MediaGrid from "@/components/MediaGrid/MediaGrid.jsx";
 
 export default async function Page({ params }) {
   
@@ -30,11 +30,7 @@ console.log(entry);
         <div>Trier par: <DropMenu></DropMenu></div>
       </nav>
       <main className={styles.container}>
-        <div className={styles.grid}>
-        {entry.medias.map((media, index)=>
-          <Media key={`media-${media.id}`} {...media}></Media>
-        )}
-        </div>
+        <MediaGrid medias={entry.medias}></MediaGrid>
       </main>
     </div>
   );
