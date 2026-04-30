@@ -68,9 +68,6 @@ const MediaCarrouselModal = (
     const dialog = dialogRef.current;
     if (!dialog) return;
 
-    console.log("medias", medias.map((media, index)=>media));
-    console.log("medias[0]", medias[0]);
-
     if (currentModal === "carrousel") {
       dialog.showModal(); // Ouvre en mode modal (avec backdrop)
     } else {
