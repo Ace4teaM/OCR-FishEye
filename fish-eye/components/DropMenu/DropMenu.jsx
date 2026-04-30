@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from './DropMenu.module.css';
 import { v4 as uuidv4 } from "uuid";
 import { ChevronUp, ChevronDown } from "lucide-react";
+import { handleKeyboardAction } from '@/utils/accessibility';
 
 
 /**
@@ -40,15 +41,13 @@ const DropMenu = (
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.header} role="button" aria-expanded={isOpen} aria-label={isOpen ? "Ouvrir le menu" : "Fermer le menu"}>
+        <div className={styles.header} tabIndex={0} onKeyDown={handleKeyboardAction(() => setIsOpen(!isOpen))} onClick={()=>{setIsOpen(!isOpen)}} role="button" aria-expanded={isOpen} aria-label={isOpen ? "Ouvrir le menu" : "Fermer le menu"}>
           <ul className={!isOpen ? `${styles.list} ${styles.collapsed}` : `${styles.list}`}>
-              <li onClick={()=>{setIsOpen(!isOpen)}}>
-                <a href="#">{items.find(item => item.title === selected).title ?? ""}</a>
-              </li>
+              <li><span>{items.find(item => item.title === selected).title ?? ""}</span></li>
           </ul>
           {isOpen 
-            ?<ChevronUp className={styles.icon} size={24} color="white" onClick={()=>{setIsOpen(false)}} />
-            : <ChevronDown className={styles.icon} size={24} color="white" onClick={()=>{setIsOpen(true)}} />
+            ?<ChevronUp className={styles.icon} size={24} color="white" />
+            : <ChevronDown className={styles.icon} size={24} color="white" />
           }
         </div>
         {isOpen &&

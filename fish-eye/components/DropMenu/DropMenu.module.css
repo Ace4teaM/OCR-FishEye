@@ -65,7 +65,7 @@
 }
 
 
-.list li a {
+.list li:hover span{
   position: relative;
   z-index: 1;
 }
