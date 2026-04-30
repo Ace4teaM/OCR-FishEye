@@ -40,7 +40,7 @@ const DropMenu = (
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.header}>
+        <div className={styles.header} role="button" aria-expanded={isOpen} aria-label={isOpen ? "Ouvrir le menu" : "Fermer le menu"}>
           <ul className={!isOpen ? `${styles.list} ${styles.collapsed}` : `${styles.list}`}>
               <li onClick={()=>{setIsOpen(!isOpen)}}>
                 <a href="#">{items.find(item => item.title === selected).title ?? ""}</a>
@@ -53,10 +53,10 @@ const DropMenu = (
         </div>
         {isOpen &&
         <div className={styles.menu}>
-          <ul className={overlay ? `${styles.dropdown} ${styles.list}` : `${styles.dropdown} ${styles.list} ${styles.relative}`}>
+          <ul role="menu" className={overlay ? `${styles.dropdown} ${styles.list}` : `${styles.dropdown} ${styles.list} ${styles.relative}`}>
           {items.filter((v)=>v.title != selected).map((item, index) => 
-            <li key={`${menuId}-item-${index}`} onClick={(e)=>_onSelected(item.title)}>
-              <a href={typeof item.action === "string" ? item.action : "#"}>{item.title}</a>
+            <li role="menuitem" key={`${menuId}-item-${index}`} onClick={(e)=>_onSelected(item.title)}>
+              <a aria-label={item.title} href={typeof item.action === "string" ? item.action : "#"}>{item.title}</a>
             </li>
           )}
           </ul>
