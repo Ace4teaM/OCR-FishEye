@@ -28,7 +28,7 @@ const CardLarge = (
     <div className={styles.container}>
       <div className={styles.content}>
         <div className={styles.photo}>
-          <img src={`/${portrait}`} alt=""></img>
+          <img src={`/${portrait}`} alt={name}></img>
         </div>
         <button className={`button ${styles.contact}`} onClick={()=>showContactModal({from:name})}>
           Contactez-moi

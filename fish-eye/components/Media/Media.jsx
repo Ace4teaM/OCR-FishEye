@@ -38,7 +38,7 @@ const Media = (
     <div className={styles.container}>
       <div className={styles.content}>
         {image ? <div className={styles.picture} onClick={clickMedia}>
-          <img src={`/${image}`}></img>
+          <img src={`/${image}`} alt={title}></img>
         </div>
         : video ? <div className={styles.video} onClick={clickMedia}>
           <video>
