@@ -4,6 +4,7 @@ import styles from './ContactFormModal.module.css';
 import { X } from "lucide-react";
 import { useEffect, useState, useRef, useId, useContext } from 'react';
 import { StatesContext } from '@/contexts/StatesContext.jsx';
+import { handleKeyboardAction } from '@/utils/accessibility';
 
 /**
  * @param {string} firstname - Champ du formulaire
@@ -56,16 +57,16 @@ const ContactFormModal = (
       </div>
       <form className={styles.content} method="dialog">
         <label htmlFor={`${id}--firstName`}>Prénom</label>
-        <input id={`${id}--firstName`} name="firstname" type="text" value={firstname}></input>
+        <input id={`${id}--firstName`} required aria-required={true} name="firstname" type="text" value={firstname}></input>
         <label htmlFor={`${id}--lastname`}>Nom</label>
-        <input id={`${id}--lastname`} name="lastname" type="text" value={lastname}></input>
+        <input id={`${id}--lastname`} required aria-required={true} name="lastname" type="text" value={lastname}></input>
         <label htmlFor={`${id}--email`}>Email</label>
-        <input id={`${id}--email`} name="email" type="email" value={email}></input>
+        <input id={`${id}--email`} required aria-required={true} name="email" type="email" value={email}></input>
         <label htmlFor={`${id}--message`}>Votre message</label>
-        <textarea id={`${id}--message`} name="message" rows={6} value={message}></textarea>
+        <textarea id={`${id}--message`} required aria-required={true} name="message" rows={6} value={message}></textarea>
         <button className="button" type="submit">Envoyer</button>
       </form>
-      <X className={styles.icon} size={42} color="white" onClick={()=>{hideModal()}} />
+      <X tabIndex="0" role="button" aria-label='Fermer le formulaire de contact' className={styles.icon} size={42} color="white" onKeyDown={handleKeyboardAction(hideModal)} onClick={hideModal} />
     </dialog>
   )
 }
