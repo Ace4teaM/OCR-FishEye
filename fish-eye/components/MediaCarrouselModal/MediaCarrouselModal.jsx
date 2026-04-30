@@ -4,6 +4,7 @@ import styles from './MediaCarrouselModal.module.css';
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState, useRef, useId, useContext } from 'react';
 import { StatesContext } from '@/contexts/StatesContext.jsx';
+import { handleKeyboardAction } from '@/utils/accessibility';
 
 /**
  * @param {Array} medias - Liste des medias [{ id, photographerId, title, image, .... }, ...]
@@ -99,9 +100,9 @@ const MediaCarrouselModal = (
           }
           <div className={styles.title}>{media.title ?? ""}</div>
       </div>
-      <X className={styles.icon} size={42} color="#901C1C" onClick={()=>{hideModal()}} />
-      <ChevronLeft className={styles.leftIcon} size={42} color="#901C1C" onClick={previousMedia} />
-      <ChevronRight className={styles.rightIcon} size={42} color="#901C1C" onClick={nextMedia} />
+      <X tabindex="0" role="button" aria-label='Fermer le carrousel' className={styles.icon} size={42} color="#901C1C" onKeyDown={handleKeyboardAction(hideModal)} onClick={hideModal} />
+      <ChevronLeft tabindex="0" role="button" aria-label='Média suivant' className={styles.leftIcon} size={42} color="#901C1C" onKeyDown={handleKeyboardAction(previousMedia)} onClick={previousMedia} />
+      <ChevronRight tabindex="0" role="button" aria-label='Média précédent' className={styles.rightIcon} size={42} color="#901C1C" onKeyDown={handleKeyboardAction(nextMedia)} onClick={nextMedia} />
     </dialog>
   )
 }
