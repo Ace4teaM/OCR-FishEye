@@ -28,6 +28,11 @@ const ContactFormModal = (
 
   const dialogRef = useRef(null);
 
+  const [_firstname, setFirstname] = useState(firstname);
+  const [_lastname, setLastname] = useState(lastname);
+  const [_email, setEmail] = useState(email);
+  const [_message, setMessage] = useState(message);
+
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -57,13 +62,13 @@ const ContactFormModal = (
       </div>
       <form className={styles.content} method="dialog">
         <label htmlFor={`${id}--firstName`}>Prénom</label>
-        <input id={`${id}--firstName`} required aria-required={true} name="firstname" type="text" value={firstname}></input>
+        <input id={`${id}--firstName`} required aria-required={true} name="firstname" type="text" value={_firstname} onChange={(e) => setFirstname(e.target.value)}></input>
         <label htmlFor={`${id}--lastname`}>Nom</label>
-        <input id={`${id}--lastname`} required aria-required={true} name="lastname" type="text" value={lastname}></input>
+        <input id={`${id}--lastname`} required aria-required={true} name="lastname" type="text" value={_lastname} onChange={(e) => setLastname(e.target.value)}></input>
         <label htmlFor={`${id}--email`}>Email</label>
-        <input id={`${id}--email`} required aria-required={true} name="email" type="email" value={email}></input>
+        <input id={`${id}--email`} required aria-required={true} name="email" type="email" value={_email} onChange={(e) => setEmail(e.target.value)}></input>
         <label htmlFor={`${id}--message`}>Votre message</label>
-        <textarea id={`${id}--message`} required aria-required={true} name="message" rows={6} value={message}></textarea>
+        <textarea id={`${id}--message`} required aria-required={true} name="message" rows={6} value={_message} onChange={(e) => setMessage(e.target.value)}></textarea>
         <button className="button" type="submit">Envoyer</button>
       </form>
       <X tabIndex="0" role="button" aria-label='Fermer le formulaire de contact' className={styles.icon} size={42} color="white" onKeyDown={handleKeyboardAction(hideModal)} onClick={hideModal} />
