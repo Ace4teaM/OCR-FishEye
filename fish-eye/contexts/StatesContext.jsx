@@ -28,7 +28,7 @@ export function StatesProvider({ children }) {
     setModalProps({});
   };
 
-  const contextPayload = { showContactModal, showCarrouselModal, hideModal, currentModal };
+  const contextPayload = { showContactModal, showCarrouselModal, hideModal, currentModal, setCurrentModal };
 
   return (
     <StatesContext.Provider value={contextPayload}>
