@@ -1,7 +1,7 @@
 
 "use client"
 
-import { useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import Media from "@/components/Media/Media.jsx";
 import styles from './MediaGrid.module.css';
 import { StatesContext } from '@/contexts/StatesContext.jsx';
@@ -45,11 +45,20 @@ const MediaGrid = (
     ]
   }) => {
 
-  const { showCarrouselModal } = useContext(StatesContext);
+  const { sortMode, showCarrouselModal } = useContext(StatesContext);
 
-  useEffect(() => {
-    console.log(`MediaGrid mounted`)
-  }, [])
+  // tri sur les medias
+  medias.sort((a, b) => {
+    switch (sortMode) {
+      case "Date":
+        return new Date(b.date) - new Date(a.date);
+      case "Titre":
+        return a.title.localeCompare(b.title);
+      case "Popularité":
+      default:
+        return b.likes - a.likes;
+    }
+  })
 
   return (
     <div className={styles.container}>

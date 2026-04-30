@@ -9,6 +9,8 @@ export const StatesContext = createContext();
 export function StatesProvider({ children }) {
   const [currentModal, setCurrentModal] = useState(""); // "" = fermé, "contact" = dialog de contact ouvert, ...
 
+  const [sortMode, setSortMode] = useState();
+
   const [modalProps, setModalProps] = useState({});
 
   const showContactModal = (props) => {
@@ -28,7 +30,7 @@ export function StatesProvider({ children }) {
     setModalProps({});
   };
 
-  const contextPayload = { showContactModal, showCarrouselModal, hideModal, currentModal, setCurrentModal };
+  const contextPayload = { showContactModal, showCarrouselModal, hideModal, currentModal, setCurrentModal, sortMode, setSortMode };
 
   return (
     <StatesContext.Provider value={contextPayload}>

@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
 import { prisma } from "@/lib/prisma.js";
-import DropMenu from "@/components/DropMenu/DropMenu.jsx";
+import MediaDropMenu from "@/components/MediaDropMenu/MediaDropMenu.jsx";
 import CardLarge from "@/components/CardLarge/CardLarge.jsx";
 import Banner from "@/components/Banner/Banner.jsx";
 import MediaGrid from "@/components/MediaGrid/MediaGrid.jsx";
@@ -30,7 +30,7 @@ export default async function Page({ params }) {
         <CardLarge {...entry}></CardLarge>
       </header>
       <nav className={styles.nav}>
-        <div>Trier par: <DropMenu></DropMenu></div>
+        <div>Trier par: <MediaDropMenu></MediaDropMenu></div>
       </nav>
       <main className={styles.container}>
         <MediaGrid medias={entry.medias}></MediaGrid>
