@@ -49,10 +49,6 @@ const CardGrid =  (
   }
 ) => {
 
-  useEffect(() => {
-    console.log(`CardGrid mounted`)
-  }, [])
-
   return (
     <div className={styles.container}>
       <div className={styles.content}>

@@ -37,11 +37,6 @@ const DropMenu = (
 
   const [isOpen, setIsOpen] = useState(false)
 
-  useEffect(() => {
-    console.log(`DropMenu mounted`)
-    console.log(items.length)
-  }, [])
-
   return (
     <div className={styles.container}>
       <div className={styles.content}>

@@ -12,10 +12,6 @@ const Banner = ({
   title = "Nos photographes"
 }) => {
 
-  useEffect(() => {
-    console.log(`Banner mounted`)
-  }, [])
-
   return (
     <div className={styles.container}>
       <div className={styles.content}>

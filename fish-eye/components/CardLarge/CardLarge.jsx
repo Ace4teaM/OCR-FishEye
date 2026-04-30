@@ -24,10 +24,6 @@ const CardLarge = (
 
   const { showContactModal } = useContext(StatesContext);
 
-  useEffect(() => {
-    console.log(`Card mounted`)
-  }, [])
-
   return (
     <div className={styles.container}>
       <div className={styles.content}>

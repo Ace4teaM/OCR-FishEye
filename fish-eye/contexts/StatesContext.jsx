@@ -14,13 +14,11 @@ export function StatesProvider({ children }) {
   const [modalProps, setModalProps] = useState({});
 
   const showContactModal = (props) => {
-    console.log("showContactModal", props);
     setCurrentModal("contact");
     setModalProps(props);
   };
 
   const showCarrouselModal = (props) => {
-    console.log("showCarrouselModal", props);
     setCurrentModal("carrousel");
     setModalProps(props);
   };

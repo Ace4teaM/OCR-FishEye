@@ -24,10 +24,6 @@ const Media = (
   }
 ) => {
 
-  useEffect(() => {
-    console.log(`Picture mounted`)
-  }, [])
-
   const clickMedia = (e) => {
     e.preventDefault();
     onClick()
