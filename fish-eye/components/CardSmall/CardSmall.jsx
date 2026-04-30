@@ -25,7 +25,7 @@ const CardSmall = (
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <Link className={styles.link} href={`/photograph/${id}`}>
+        <Link className={styles.link} href={`/photograph/${id}`} aria-label={`Visiter la galerie de ${name}`}>
           <div className={styles.photo}>
             <img src={`/${portrait}`} alt={name}></img>
           </div>
