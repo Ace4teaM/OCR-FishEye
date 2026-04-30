@@ -19,6 +19,7 @@
   line-height: 2em;
   width: 100%;
   white-space: nowrap;
+  user-select: none;
 }
 
 .text{
