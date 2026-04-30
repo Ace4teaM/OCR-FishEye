@@ -36,7 +36,7 @@ export default async function Page({ params }) {
         <MediaGrid medias={entry.medias}></MediaGrid>
       </main>
       <footer className={styles.footer}>
-        <div className={styles.likes}>{likes} <Heart className={styles.heart} fill="black" size={16} color="black" /></div>
+        <div className={styles.likes}>{likes} <Heart className={styles.heart} fill="black" size={16} color="black"></Heart></div>
         <div className={styles.price}>{entry.price}€ / jour</div>
       </footer>
     </div>

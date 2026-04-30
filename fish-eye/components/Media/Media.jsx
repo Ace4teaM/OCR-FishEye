@@ -3,13 +3,14 @@
 import { useEffect } from 'react';
 import styles from './Media.module.css';
 import { Heart } from "lucide-react";
+import { likeMedia } from '@/app/actions.js';
 
 /**
  * @param {int} id - Identifiant
- * @param {string} image - Chemin vers le fichier image
- * @param {string} title - Titre
- * @param {string} likes - Nombre de likes
- * @param {string} video - Chemin vers le fichier vidéo
+ * @param {string} image     - Chemin vers le fichier image
+ * @param {string} title     - Titre
+ * @param {string} likes     - Nombre de likes
+ * @param {string} video     - Chemin vers le fichier vidéo
  * @param {function} onClick - Fonction à appeler au clic sur le media
  */
 const Media = (
@@ -32,6 +33,11 @@ const Media = (
     onClick()
   }
 
+  const clickLike = async (e) => {
+    e.preventDefault();
+    await likeMedia(id);
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -47,7 +53,7 @@ const Media = (
         }
         <div className={styles.footer}>
           <div className={styles.text}>{title}</div>
-          <div>{likes} <Heart className={styles.icon}></Heart></div>
+          <div>{likes} <Heart className={styles.icon} onClick={clickLike}></Heart></div>
         </div>
       </div>
     </div>
