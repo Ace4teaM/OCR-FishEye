@@ -92,7 +92,7 @@ const MediaCarrouselModal = (
             <img src={`/${media.image}`} alt={media.title}></img>
           </div>
           : media && media.video ? <div className={styles.video}>
-            <video controls playsInline>
+            <video autoPlay controls playsInline>
               <source src={`/${media.video}`} type="video/mp4" />
             </video>
           </div>
