@@ -1,6 +1,6 @@
 "use client"
 
-import styles from './FormModal.module.css';
+import styles from './ContactFormModal.module.css';
 import { X } from "lucide-react";
 import { useEffect, useState, useRef, useId, useContext } from 'react';
 import { StatesContext } from '@/contexts/StatesContext.jsx';
@@ -11,7 +11,7 @@ import { StatesContext } from '@/contexts/StatesContext.jsx';
  * @param {string} email - Champ du formulaire
  * @param {string} message - Champ du formulaire
  */
-const FormModal = (
+const ContactFormModal = (
   {
     from = "Ellie Rose",
     firstname = "Dupont",
@@ -70,4 +70,4 @@ const FormModal = (
   )
 }
 
-export default FormModal;
+export default ContactFormModal;

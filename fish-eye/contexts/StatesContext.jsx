@@ -1,7 +1,7 @@
 "use client"
 
 import { createContext, useState, useMemo } from 'react';
-import FormModal from "@/components/FormModal/FormModal.jsx";
+import ContactFormModal from "@/components/ContactFormModal/ContactFormModal.jsx";
 import MediaCarrouselModal from "@/components/MediaCarrouselModal/MediaCarrouselModal.jsx";
 
 export const StatesContext = createContext();
@@ -34,7 +34,7 @@ export function StatesProvider({ children }) {
     <StatesContext.Provider value={contextPayload}>
       {children}
       {
-      currentModal == "contact" ?<FormModal {...modalProps}></FormModal>:
+      currentModal == "contact" ?<ContactFormModal {...modalProps}></ContactFormModal>:
       currentModal == "carrousel" ?<MediaCarrouselModal {...modalProps}></MediaCarrouselModal>:
       <></>
       }
