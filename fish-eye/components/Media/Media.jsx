@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import styles from './Media.module.css';
 import { Heart } from "lucide-react";
 import { likeMedia } from '@/app/actions.js';
+import { handleKeyboardAction } from '@/utils/accessibility';
 
 /**
  * @param {int} id - Identifiant
@@ -37,19 +38,21 @@ const Media = (
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        {image ? <div className={styles.picture} onClick={clickMedia}>
-          <img src={`/${image}`} alt={title}></img>
+        <div tabIndex={0} onKeyDown={handleKeyboardAction(clickMedia)} onClick={clickMedia}>
+          {image ? <div className={styles.picture}>
+            <img src={`/${image}`} alt={title}></img>
+          </div>
+          : video ? <div className={styles.video}>
+            <video>
+              <source src={`/${video}`} type="video/mp4" />
+            </video>
+          </div>
+          : <div className={styles.empty}>Empty</div>
+          }
         </div>
-        : video ? <div className={styles.video} onClick={clickMedia}>
-          <video>
-            <source src={`/${video}`} type="video/mp4" />
-          </video>
-        </div>
-        : <div className={styles.empty}>Empty</div>
-        }
         <div className={styles.footer}>
           <div className={styles.text}>{title}</div>
-          <div>{likes} <Heart className={styles.icon} onClick={clickLike}></Heart></div>
+          <div tabIndex={0} onKeyDown={handleKeyboardAction(clickLike)} onClick={clickLike}>{likes} <Heart className={styles.icon}></Heart></div>
         </div>
       </div>
     </div>
