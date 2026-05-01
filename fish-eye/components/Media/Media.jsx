@@ -52,7 +52,7 @@ const Media = (
         </div>
         <div className={styles.footer}>
           <div className={styles.text}>{title}</div>
-          <div tabIndex={0} onKeyDown={handleKeyboardAction(clickLike)} onClick={clickLike}>{likes} <Heart className={styles.icon}></Heart></div>
+          <div aria-label="likes" tabIndex={0} onKeyDown={handleKeyboardAction(clickLike)} onClick={clickLike}>{likes} <Heart className={styles.icon}></Heart></div>
         </div>
       </div>
     </div>

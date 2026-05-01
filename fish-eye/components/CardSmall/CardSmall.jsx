@@ -10,6 +10,7 @@ import Link from 'next/link'
  * @param {string} name - Nom et prénom
  * @param {string} text - Citation
  * @param {string} location - La ville
+ * @param {integer} price - Taux journalier en euros
  */
 const CardSmall = (
   {
@@ -18,7 +19,8 @@ const CardSmall = (
     name = "Ellie-Rose Wilkens",
     tagline = "Capturer des compositions complexes",
     city = "Paris",
-    country = "France"
+    country = "France",
+    price = 100
   }
 ) => {
 
@@ -34,6 +36,7 @@ const CardSmall = (
         <div className={styles.title}>
           <div className={styles.location}>{city}, {country}</div>
           <div className={styles.text}>{tagline}</div>
+          <div className={styles.price}>{price}€/jour</div>
         </div>
       </div>
     </div>

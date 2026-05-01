@@ -41,7 +41,7 @@ const DropMenu = (
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.header} tabIndex={0} onKeyDown={handleKeyboardAction(() => setIsOpen(!isOpen))} onClick={()=>{setIsOpen(!isOpen)}} role="button" aria-expanded={isOpen} aria-label={isOpen ? "Ouvrir le menu" : "Fermer le menu"}>
+        <div className={styles.header} tabIndex={0} onKeyDown={handleKeyboardAction(() => setIsOpen(!isOpen))} onClick={()=>{setIsOpen(!isOpen)}} role="button" aria-expanded={isOpen} aria-haspopup="listbox" aria-label={isOpen ? "Ouvrir le menu" : "Fermer le menu"}>
           <ul className={!isOpen ? `${styles.list} ${styles.collapsed}` : `${styles.list}`}>
               <li><span>{items.find(item => item.title === selected).title ?? ""}</span></li>
           </ul>
