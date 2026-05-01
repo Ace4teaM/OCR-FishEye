@@ -55,7 +55,7 @@ const DropMenu = (
           <ul role="menu" className={overlay ? `${styles.dropdown} ${styles.list}` : `${styles.dropdown} ${styles.list} ${styles.relative}`}>
           {items.filter((v)=>v.title != selected).map((item, index) => 
             <li role="menuitem" key={`${menuId}-item-${index}`} onClick={(e)=>_onSelected(item.title)}>
-              <a aria-label={item.title} href={typeof item.action === "string" ? item.action : "#"}>{item.title}</a>
+              <span><a aria-label={item.title} href={typeof item.action === "string" ? item.action : "#"}>{item.title}</a></span>
             </li>
           )}
           </ul>
