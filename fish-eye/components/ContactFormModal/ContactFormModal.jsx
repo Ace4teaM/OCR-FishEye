@@ -45,6 +45,13 @@ const ContactFormModal = (
     }
   }, [currentModal]); // Se déclenche chaque fois que le texte change
 
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Empêche la soumission du formulaire
+    console.log({ firstname: _firstname, lastname: _lastname, email: _email, message: _message });
+    hideModal();
+  };
+
   return (
     <dialog
       className={styles.container}
@@ -60,7 +67,7 @@ const ContactFormModal = (
         <h2>Contactez-moi</h2>
         <div>{from}</div>
       </div>
-      <form className={styles.content} method="dialog">
+      <form className={styles.content} method="dialog" onSubmit={handleSubmit}>
         <label htmlFor={`${id}--firstName`}>Prénom</label>
         <input id={`${id}--firstName`} required aria-required={true} name="firstname" type="text" value={_firstname} onChange={(e) => setFirstname(e.target.value)}></input>
         <label htmlFor={`${id}--lastname`}>Nom</label>
