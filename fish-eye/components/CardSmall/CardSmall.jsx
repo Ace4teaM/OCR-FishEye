@@ -25,21 +25,21 @@ const CardSmall = (
 ) => {
 
   return (
-    <div className={styles.container}>
+    <article className={styles.container} aria-label={`${name}, photographe freelance à ${city}`}>
       <div className={styles.content}>
         <Link className={styles.link} href={`/photograph/${id}`} aria-label={`Visiter la galerie de ${name}`}>
           <div className={styles.photo}>
-            <img src={`/${portrait}`} alt={name}></img>
+            <img src={`/${portrait}`} alt=""></img>
           </div>
-          <h2 className={styles.name}>{name}</h2>
+          <h2 className={styles.name} aria-hidden="true">{name}</h2>
         </Link>
         <div className={styles.title}>
-          <div className={styles.location}>{city}, {country}</div>
+          <div className={styles.location} aria-label={`Localisation : ${city}, ${country}`}>{city}, {country}</div>
           <div className={styles.text}>{tagline}</div>
-          <div className={styles.price}>{price}€/jour</div>
+          <div className={styles.price} aria-label={`Tarif : ${price}€ par jour`}>{price}€/jour</div>
         </div>
       </div>
-    </div>
+    </article>
   )
 }
 
