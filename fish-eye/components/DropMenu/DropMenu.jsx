@@ -89,7 +89,7 @@ const DropMenu = (
           tabIndex={0} 
           onKeyDown={handleKeyboardAction(()=>setIsOpen(!isOpen))} 
           onClick={()=>{setIsOpen(!isOpen)}} 
-          role="combobox"
+          role="button"
           aria-expanded={isOpen} 
           aria-haspopup="listbox" 
           aria-controls={menuId}
@@ -106,8 +106,8 @@ const DropMenu = (
         <div className={`${styles.menu} ${isOpen ? "" : styles.hidden}`} id={menuId}>
           <ul ref={listRef}  role="listbox" className={overlay ? `${styles.dropdown} ${styles.list}` : `${styles.dropdown} ${styles.list} ${styles.relative}`}>
           {items.filter((v)=>v.title != selected).map((item, index) => 
-            <li role="option" tabIndex={-1} key={`${menuId}-item-${index}`} onKeyDown={(e)=>handleMenuKeyboardActions(e, item)} onClick={(e)=>_onSelected(item.title)}>
-              <span><a aria-label={item.title} href={typeof item.action === "string" ? item.action : "#"}>{item.title}</a></span>
+            <li role="option" aria-label={item.title} tabIndex={-1} key={`${menuId}-item-${index}`} onKeyDown={(e)=>handleMenuKeyboardActions(e, item)} onClick={(e)=>_onSelected(item.title)}>
+              <span><a aria-hidden={true} href={typeof item.action === "string" ? item.action : "#"}>{item.title}</a></span>
             </li>
           )}
           </ul>
