@@ -93,7 +93,7 @@ const DropMenu = (
           aria-expanded={isOpen} 
           aria-haspopup="listbox" 
           aria-controls={menuId}
-          aria-label={isOpen ? "Ouvrir le menu de tri" : "Fermer le menu de tri"}
+          aria-label={!isOpen ? "Ouvrir le menu de tri" : "Fermer le menu de tri"}
         >
           <ul className={!isOpen ? `${styles.list} ${styles.collapsed}` : `${styles.list}`}>
               <li><span>{items.find(item => item.title === selected).title ?? ""}</span></li>
